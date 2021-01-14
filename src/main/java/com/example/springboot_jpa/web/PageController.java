@@ -1,6 +1,7 @@
 package com.example.springboot_jpa.web;
 
-import com.example.springboot_jpa.domain.User;
+//import com.example.springboot_jpa.domain.User;
+import com.example.springboot_jpa.domain.UserResponseDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +17,16 @@ public class PageController {
     @GetMapping("/loginPage")
     public String login(Model model){
 
-        User user = User.builder()
-                    .name("현건수")
-                    .age(13)
-                    .build();
-        model.addAttribute("User",user);
+        UserResponseDto userResponseDto = UserResponseDto.builder()
+                                            .name("현건수")
+                                            .age(13)
+                                            .build();
+
+//        User user = User.builder()
+//                    .name("현건수")
+//                    .age(13)
+//                    .build();
+        model.addAttribute("userResponseDto",userResponseDto);
 
         return "login";
     }
