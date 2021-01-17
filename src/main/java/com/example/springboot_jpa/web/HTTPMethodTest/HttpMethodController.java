@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HttpMethodController {
 
+    //회원 목록 get (/members)
+    //회원 등록 post (/members)
+    //회원 조회 get (/members/{id})
+    //회원 수정 patch,put,post (/members/{id})
+    //회원 삭제 delete (/members/{id})
+
     //주로 정렬 필터(검색어) - 쿼리 파라미터 전송
     //getMethod
     @GetMapping("/getMethod")
@@ -20,6 +26,13 @@ public class HttpMethodController {
     public String get(){
         return "get";
     }
+
+
+    @GetMapping("/getMethodBuilderTest")
+    public UserResponseDto getMethodBuilderTest(@RequestParam String name){
+        return UserResponseDto.builder().name(name).build();
+    }
+
 
 
 }
