@@ -7,6 +7,8 @@
 <body>
 
     헤더 테스트입니다.
+    <input name="headerTest" id="headerTest">
+    <button onclick="getHeader()">getHeader테스트</button>
 </body>
 <script>
     var HeaderTestAPI = "http://localhost:8080/setHeaderTest"
@@ -24,5 +26,29 @@
         console.log("헤더 정보 :"+res.headers.get("addHeaderName"))
         });
 
+    function getHeader(){
+        var InputHeaderTest = document.getElementById("headerTest").value;
+        var api = "http://localhost:8080/getHeaderTest";
+        console.log("InputHeaderTest : "+InputHeaderTest);
+
+        var data = JSON.stringify ({
+            "name" : "hyun",
+            "gender" : "M"
+        });
+
+        fetch(api,{
+            contentType : 'application/json',
+            method : 'post',
+            headers : {
+                'Content-Type' : 'application/json',
+                'getHeader' : InputHeaderTest
+            },
+            body : data
+        })
+        .then( (res) =>{
+            console.log(res);
+            console.log("getHeader 헤더 정보 "+res.headers.get("setResHeader"));
+        })
+    }
 </script>
 </html>
