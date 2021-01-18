@@ -13,4 +13,9 @@ public class UserResponseDto {
     private String name;
 
     private int age;
+
+
+    public User toEntity(){
+        return User.builder().name(name).age(age).build();
+    }
 }

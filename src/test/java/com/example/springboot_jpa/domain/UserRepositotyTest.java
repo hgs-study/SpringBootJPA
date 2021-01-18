@@ -29,9 +29,25 @@ public class UserRepositotyTest {
 
         System.out.printf("UserList : "+UserList.get(0).getName());
         //then
+        assertThat(UserList.get(0).getName()).isEqualTo("현");
+        assertThat(UserList.get(0).getAge()).isEqualTo(28);
+    }
+
+
+    @Test
+    public void h2_테이블확인_(){
+
+        //when
+        List<User> UserList = userRepository.findAll();
+
+        System.out.printf("UserList : "+UserList.get(0).getName());
+        //then
         User Users = UserList.get(0);
         assertThat(Users.getName()).isEqualTo("현");
         assertThat(Users.getAge()).isEqualTo(28);
     }
+
+
+
 
 }
