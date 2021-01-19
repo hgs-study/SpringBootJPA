@@ -7,13 +7,16 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class UserResponseDto {
     private String name;
 
     private int age;
 
+    @Builder
+    public UserResponseDto(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
 
     public User toEntity(){
         return User.builder().name(name).age(age).build();

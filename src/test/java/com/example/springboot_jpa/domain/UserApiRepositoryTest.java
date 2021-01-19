@@ -33,9 +33,12 @@ public class UserApiRepositoryTest {
         //GIVEN
         String name ="Hyun";
         int age = 28;
-        UserResponseDto userResponseDto = UserResponseDto.builder().name(name).age(age).build();
-        String url ="http://localhost:"+port+"/api/v1/users";
 
+        UserResponseDto userResponseDto = UserResponseDto.builder().name(name).age(age).build();
+        System.out.printf("userResponseDto : "+userResponseDto.getName());
+        System.out.printf("userResponseDto : "+userResponseDto);
+        String url ="http://localhost:"+port+"/api/v1/users";
+        System.out.printf("url : "+url);
         //when
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url,userResponseDto,Long.class);
 
